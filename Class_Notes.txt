@@ -275,3 +275,226 @@ Next ::
 	
 	
 	MLOps	
+
+
+
+#####################
+Day 2: 19th Nov. 2025
+#####################			
+				
+	Conti.... Introduction to MLOps 
+
+https://github.com/Edu-MLOps-1125/MLOPs_Training_Docs
+
+		How to Implement DevOps ???						<======>   				MLOps
+	DevOps :
+	
+		DevOps is Software Development Strategy, which helps to promote the collaboration between the teams like Development Team and Operations Team to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployments and Continuous Monitoring in more automated fashion.
+
+		- Continuous Delivery ::
+			- It is a process used to release the changes to production environment, and it expects the manual approvals for production releases.
+
+				Core Banking Applications / Insurance Applications ::::
+				
+					-> On-Prem Infra-Structure
+					
+					-> Cloud Infra-Structure
+					
+					-> Downtime?	
+						
+						Production release window :
+						
+							4 - 6 Hrs 
+							
+							Prod Promotion 
+								LIVE 
+							
+							
+						
+	Continuous Deployments ::
+			
+		amazon.com / facebook / Netflix :::
+		
+	
+	www.amazon.com :::
+	
+	Sign-Up 		-> Micro-Service1 - Developer1 -> Code,test,Promote to prod
+	Sign-In 		-> Micro-Service2 - Developer2 -> Code,test,Promote to prod
+	Search 
+	Add to Cart 
+	Place Order 
+	Payment 
+	Confirm 
+	Track
+	
+	
+
+	- Environments :
+	
+	Non-Prod 													Prod 
+	
+		Dev 
+		
+		Test 
+		
+			QA 
+			
+			UAT 		------>  Staging/Pre-Prod ----->			Prod Servers	
+			
+		
+
+	Sample MLOps Environments:
+	
+		Dev 
+		
+		Stage 
+		
+		Prod 
+
+
+	CICD Pipeline :
+	
+	
+	DevOps LifeCycle :
+
+		Code - Source Code - Git repo. --> Build --> Unit Test --> Promote to QA --> Automate Testing --> Release to Prod
+		
+																												|
+																												|
+																											Monitoring 
+																												|
+																												|
+
+
+	Overall DevOps :::
+	
+		People,Process,Tools 
+
+		AWS Cloud Services 
+		
+		10 Yr.
+		
+		
+	SDLC: Waterfall (vs) AGILE (vs) DevOps 
+		CI/CD(d)
+		
+		
+	MLOps : Stands for Machine Learning Operations	
+		
+	MLOps is a core fn of Machine Learning Engineers - to Streamline the process of taking the ML Models from dev to prod and also maintain and monitor ML Models 
+	
+	MLOps is collaborative effort of Teams like Data Scientists, DevOps, IT.
+	
+	
+	What is Machine Learning?
+		- A technique by which a computer can learn from data without using a complex set of rules, Mainly based on training a model from the Huge Datasets..
+	
+
+Use Cases of ML Projects :::	
+	Retail Domain :
+	
+		E_Commerce 
+		
+		
+	Logistics :
+	
+	Stock Market 
+	
+	Doller rate 
+	
+	Gold Rates 
+	
+	Weather reports 
+	
+	Reviews 
+	
+		amazon.com 
+			- 
+			
+	Openai
+	
+	What is the need for MLOps?	
+	
+		Address all the practical challenges of ML Projects: 
+		
+			- ML Model creation at enterprise level :
+				- Dependencies
+				- Multiple Teams Involved in the process 
+				- Risk associated with each team and dependent systems 
+				- Infra-Structure - Auto Scaling and Load Balancing 
+				
+	How to Implement MLOps :
+	
+	- Data Engineers		-> Prepare the Source Data sets 
+	
+	- Data Scientists 		->  Explore the datasets, analyse, check the feasibility of datasets 
+								Perform the training, tuning, and evaluate the Model
+	
+	- ML Engineers 			-> Deploy the ML Models to prod -> MLOps Strageies CICD, define best practises
+								Should have MLOps Knowledge
+	
+	- Business Stakeholders --> Bring business values using this ML Models 
+	
+	- Data Security/Governance Team  --> To Ensure data security & Governance, data privacy
+	
+	
+	DevOps can be used to automate the typical Software Application Build and Deployments using CICD Pipelines 
+	
+		- E_Commerce Application
+		- Desktops Applications
+		
+	MLOPs - Is predominantly used to automate the deployments of ML Models/Project
+		
+		- Chatbot 
+			
+			
+	Process/Lifecycle of Machine Learning Ops:::
+	
+		- Data Preparation 
+
+		- Exploratory Data Analysis (EDA)
+		
+		- Feature Engineering
+		
+		- Model Training 
+		
+		- Model Validations 
+		
+		- Model Deployment 
+		
+		- Monitoring
+	
+		
+	
+	Official AWS Free Tier Account :
+		IAM ID to login 
+		
+			VM Instance ID - Login - ML Tools 
+			
+			GitHub -> 
+			
+			
+	Personal AWS Cloud Account :::
+	
+		- Create Free-tier Account 	-- 12 Months --> 
+		
+			- Personal Laptop 
+			
+				- Active Mobile Number, Credit/Debit Card & Email_ID
+				
+				- Create EC2 Instances with t2.micro -1GB RAM & 1CPU, Connect & Install MLOps Tools 
+		
+		- Create Free Github account - with Active Email_ID
+		
+		
+	MLFlow 
+	
+	GIT 
+
+Next:::
+
+	ML Version Control System using GIT.
+	
+	Git CLI
+	
+	GitHub Repo Management 
