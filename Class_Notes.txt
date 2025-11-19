@@ -1,0 +1,277 @@
+MLOps MLOps Certification Course
+
+Start Date: 17th Nov. 2025
+
+#####################
+Day 1: 17th Nov. 2025
+#####################
+
+
+Introduction to MLOps :::
+
+	- SDLC :
+	
+	- Development Team & Operations Team!
+	
+		-> 
+		
+	What is DevOps ?
+	
+
+	DevOps Process :
+	
+	SDLC : Software Development Life Cycle :
+	
+		
+		Desktop Applications 
+		
+		Mobile Applications
+		
+		Web Applications
+		
+		Embedded Applications 
+		
+	Desktop Applications  :::
+	
+	SDLC : Software Development Life Cycle :
+
+	Stages 	
+	
+		- Requirement Analysis 
+		
+		- Design 
+		
+		- Coding/Development
+		
+		- Testing 
+		
+		- Implement to Production 
+		
+		- Monitoring/Maintain
+		
+		
+	Waterfall Model : 
+		- Linear in fashion - Follow top-down approach 
+		- Meant for Monolith Application Architecture 
+				- Monolith Applications are Tightly Coupled Applications
+		
+	
+	Desktop Applications  :::
+	
+		-> Super-Market Billing System :
+			- Functions: 
+			
+				- User Interface 
+				- Inventory Management 
+				- Billing Management
+				- Payment Management
+					- CASH Payment 
+					- Card Payment 
+						- UPI Payment 
+						- Online Payment 
+					
+					
+Core Project :
+				
+	- Requirement Analysis 	==> 	11 Months
+	
+	- Design 								
+	
+	- Coding/Development		--> 6th Month 
+	
+	- Testing 
+	
+	- Implement to Production 
+	
+	- Monitoring/Maintain		
+
+
+Enhancement Project :
+						- UPI Payment 
+						- Online Payment 
+				
+	- Requirement Analysis 	==> 	
+	
+	- Design 								
+	
+	- Coding/Development		
+	
+	- Testing 
+	
+	- Implement to Production 
+	
+	- Monitoring/Maintain
+
+
+	AGILE Methodologies ::::
+	
+		-> Iterations 
+
+		-> Super-Market Billing System :
+			- Functions/Modules/Iterations: 
+			
+				- User Interface 
+				- Inventory Management 
+				- Billing Management
+				- Payment Management
+					- CASH Payment 
+					- Card Payment 
+	
+Iteration 1: User Interface
+
+	- Requirement Analysis 	==> 	
+	
+	- Design 								
+	
+	- Coding/Development		
+	
+	- Testing 
+	
+	- Implement to Production with proper approvals 
+	
+	- Monitoring/Maintain	
+
+
+Iteration 2: Inventory Management 
+
+	- Requirement Analysis 	==> 	
+	
+	- Design 								
+	
+	- Coding/Development		
+	
+	- Testing 
+	
+	- Implement to Production with proper approvals 
+	
+	- Monitoring/Maintain
+
+
+Iteration 3: Billing Management
+
+	- Requirement Analysis 	==> 	
+	
+	- Design 								
+	
+	- Coding/Development		
+	
+	- Testing 
+	
+	- Implement to Production with proper approvals 
+	
+	- Monitoring/Maintain
+
+
+nth Iteration : UPI Payment
+
+	- Requirement Analysis 	==> 	
+	
+	- Design 								
+	
+	- Coding/Development		
+	
+	- Testing 
+	
+	- Implement to Production with proper approvals 
+	
+	- Monitoring/Maintain
+	
+	
+	Using AGILE Methodologies :
+	
+		We can able to achieve:
+		
+			- Continuous Development
+			- Continuous Integration 
+			- Continuous Testing 		
+			- Continuous Delivery ::
+				- It is a process used to release the changes to production environment, and it expects the manual approvals for production releases.
+				
+			
+		We cannot achieve:		
+			- Continuous Deployments ::
+				- It is a process used to release the changes to production environment, and it never expects any manual approvals/intervension for production releases.
+
+				- Continuous Deployments can be achieved based on the Application Architecture.
+					- Application Architecture should be Micro-Service Based Application Architecture.
+
+				
+	
+	DevOps :
+	
+		DevOps is Software Development Strategy, which helps to promote the collaboration between the teams like Development Team and Operations Team to achieve Continuous Development, Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployments and Continuous Monitoring in more automated fashion.
+		
+		Shift Left Approach! - DevSecOps
+		
+		Dev -> Test -> Production
+		
+		
+		Development Teams' Workload :
+		
+			- New Project 
+			
+			- Enhancement Projects / Bug Fixing 
+			
+		Parallel development :::
+		
+			- Achieved using Git Branching stragies 
+			
+			
+		How to Implement DevOps ???						<======>   				MLOps
+		
+		
+		- Identify the Teams :
+
+			Devops Team :
+				- Infra-Structure Management Team 
+						20+ Test Servers - Provision & Configure
+							-> IAC Tools - Terraform/Ansible						
+				- App Development Team 
+				- Testing Teams 
+				- Release Management Team 
+				- Production Support Team 
+				- Production Monitoring Team 
+				- IT Security Team 
+				
+				
+		- Application Architecture :
+			
+			- Monolith Application Architecture :::
+				- Monolith Applications are Tightly Coupled Applications
+				- All the Functions/dependencies are created, tested, and deployed as whole Application
+				- We can achieve Continuous Delivery. Not Continuous Deployment
+				
+			
+			- Micro-Service Based Architecture :::
+			
+				- It is a loosely coupled Application Architecture
+				- Whole Application is divided into Micro-Services 
+				- Continuous Deployment can be achieved only using Micro-Service Based Application Architecture
+				
+		Continuous Delivery :
+
+			- Continuous Delivery ::
+				- It is a process used to release the changes to production environment, and it expects the manual approvals for production releases.
+
+					Core Banking Applications / Insurance Applications ::::
+					
+						-> On-Prem Infra-Structure
+						
+						-> Cloud Infra-Structure
+						
+						-> Downtime?				
+			
+
+			- Continuous Deployments ::
+				- It is a process used to release the changes to production environment, and it never expects any manual approvals/intervension for production releases.
+
+				- Continuous Deployments can be achieved based on the Application Architecture.
+					- Application Architecture should be Micro-Service Based Application Architecture.
+
+
+Next ::
+
+	amazon.com / facebook / Netflix :::
+	
+	
+	MLOps	
