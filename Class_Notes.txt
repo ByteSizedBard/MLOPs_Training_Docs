@@ -1921,4 +1921,318 @@ Next:
 	
 	- DVC 
 
+				
+
+#####################
+Day 7: 4th Dec. 2025
+#####################
+
+	
+	- GIT STASH	:::
+	
+		- It is used to Maintain the uncommitted changes to a temporary location
+		
+		
+		Project:
+			Repo1 
+			
+				main: cm1
+					
+					feature1 : cm1
+								cm1
+								
+					hot-fix :
+					
+					
+	git stash save "save_message"	# Save an entry in stash list
+	
+	git stash list 					# Get the Stash list.
+	
+	git stash apply 				# To apply the latest entry from the stash list back to staging area. 	
+	git stash apply stash@{2}		# To apply a specific entry from the stash list back to staging area
+	
+	git stash drop 					# To delete the latest entry from the stash list.
+	git stash drop stash@{2}		# To delete a specific entry from the stash list.
+	
+	git stash pop 					
+		# To apply the latest entry from the stash list back to staging area as well as delete that latest entry from the stash list.								
+									
+	git stash pop stash@{1}	
+		# To apply a specific entry from the stash list back to staging area as well as delete that specific entry from the stash list.
+									
+	git stash clear 				# To clean-up the stash list 
+	
+	
+	
+	
+Git Remote Repositories :	GITHUB Remote Repository Server.
+
+	- Open-Source Projects
+	
+	- gitlab/azRepos/Bitbucket/AWS CodeCommit ==> Distributed VCS 
+	
+	
+- GIT File Workflow :
+
+
+Local Machine 																						Remote Git Server 	
+	
+Working Directory				Staging Area 					  Local Git Repository			     Remote Repository
+
+index.html 		 ============>	index.html 	  =================>  index.html_V1.0	   ===========>   index.html_V1.0
+					git add 					 git commit 							git push
+
+		
+
+Developers' Workload :
+
+	- Enhancement Project / Bug Fixing 
+	
+	- New Project 
+	
+	
+	git clone				# To copy/clone the entire remote repository to Local Machine 
+
+	git add 				# To Add the changes from working directory to staging area/index area
+	
+	git commit 				# To Commit the changes from staging area to local repository
+	
+	git push				# To push the changes from local repository to repository
+	
+	git pull/git fetch 	:::	
+	
+		-	# Both git pull & git fetch are used to handle incremental changes from remote repository
+		
+		- git fetch :
+			# It is used to check for any incremental changes in remote repository, if any incremental changes exist, it will update the details in local repository not the Working directory.
+			
+			Use git pull / git merge to work on the changes
+			
+		- git pull :
+			# It is used to check for any incremental changes in remote repository, if any incremental changes exist, it will update the local repository as well the Working directory.
+			
+			git pull = git fetch + git merge 
+			
+	
+Developers' Workload :
+
+	- Enhancement Project / Bug Fixing 	==> Working with existing Remote Repos
+	
+	- New Project 						==> Create New Repo.
+	
+	
+	Login to github account :
+
+		- Create Remote Repositories 
+		
+		- Working with Remote Repositories using GITHub Web Interface.
+		
+		
+		- Created Branch 
+		
+		- Merge the feature branch to main branch in github
+		
+			- using pull request. 
+				- is always created by the developers & submit to the reviewer/approver
+				- Upon approval(s), the changes can be merged into main branch
+				
+	
+	
+	
+	git clone https://github.com/Edu-MLOps-1125/testrepo1.git
+	
+	
+	
+	git remote -v
+	
+	git push -u origin local-feature1
+	
+	
+	Configure Access Key and Secret Key - PAT on GITHUB
+	
+  704  clear
+  705  ls
+  706  mkdir demorepo1
+  707  cd demorepo1/
+  708  git init
+  709  echo "rec1" >> q1.txt
+  710  git add .
+  711  git commit -m "Created q1.txt"
+  712  git branch
+  713  git switch -c feature1
+  714  ls
+  715  echo "rec1" >> s1.txt
+  716  git add .
+  717  git status
+  718  git switch master
+  719  git status
+  720  git switch feature1
+  721  git status
+  722  git stash list
+  723  git stash save "for s1.txt"
+  724  git stash list
+  725  ls
+  726  git status
+  727  git stash apply
+  728  git status
+  729  ls
+  730  git stash list
+  731  git stash drop
+  732  git stash list
+  733  ls
+  734  git status
+  735  git stash save "for s1.txt"
+  736  echo "rec1" >> s2.txt
+  737  git add .
+  738  git stash save "for s2.txt"
+  739  echo "rec1" >> s3.txt
+  740  git add .
+  741  git stash save "for s3.txt"
+  742  echo "rec1" >> s4.txt
+  743  git add .
+  744  git stash save "for s4.txt"
+  745  clear
+  746  git stash list
+  747  ls
+  748  echo "rec1" >> s5.txt
+  749  git add .
+  750  git stash save "for s5.txt"
+  751  git stash list
+  752  git status
+  753  git stash apply
+  754  git stash list
+  755  git stash drop
+  756  git stash list
+  757  git stash save "for s5.txt"
+  758  git stash list
+  759  git status
+  760  git stash pop
+  761  git status
+  762  git stash list
+  763  git stash save "for s5.txt"
+  764  git stash list
+  765  git status
+  766  git stash apply stash@{3}
+  767  git stash list
+  768  ls
+  769  git commit -m "adf"
+  770  git status
+  771  git stash drop stash@{3}
+  772  git stash list
+  773  git stash pop stash@{2}
+  774  git stash list
+  775  git status
+  776  git commit -m "asdf"
+  777  clear
+  778  git stash list
+  779  git stash clear
+  780  git stash list
+  781  git status
+  782  clear
+  783  cd ..
+  784  ls
+  785  mkdir remoterepos
+  786  clear
+  787  ls
+  788  cd remoterepos/
+  789  clear
+  790  git clone https://github.com/Edu-MLOps-1125/testrepo1.git
+  791  ls
+  792  cd testrepo1/
+  793  ls
+  794  git remote -v
+  795  clear
+  796  ls
+  797  git branch
+  798  git switch -c localfeature1
+  799  ls
+  800  git log --oneline
+  801  echo "rec1" >> n1.txt
+  802  git add .
+  803  git commit -m "Create n1.txt in local_feature1"
+  804  ls
+  805  git status
+  806  git push -u origin localfeature1
+  807  git status
+  808  git switch main
+  809  clear
+  810  git status
+  811  ls
+  812  git fetch
+  813  ls
+  814  git pull
+  815  git status
+  816  git remote -v
+  817  ls
+  818  git status
+  819  git log --oneline
+  820  git status
+  821  ls
+  822  git pull
+  823  ls
+  824  git remote -v
+  825  clear
+  826  cd ..
+  827  mkdir temprepo1
+  828  cd temprepo1/
+  829  git init
+  830  git status
+  831  echo "rec1" >> l1.txt
+  832  git commit -m "cm1
+"
+  833  git status
+  834  git add .
+  835  git commit -m "cm1"
+  836  clear
+  837  ls
+  838  git remote -v
+  839  git remote add origin https://github.com/Edu-MLOps-1125/temprepo1.git
+  840  git remote -v
+  841  git branch -M main
+  842  git branch -M master
+  843  git push -u origin master
+  844  git remote -v
+  845  git remote remove origin
+  846  git remote -v
+  847  git remote add origin https://github.com/Edu-MLOps-1125/temprepo1.git
+  848  git remote -v
+  849  git remote add origin https://github.com/Edu-MLOps-1125/testrepo1.git
+  850  git remote add origin1 https://github.com/Edu-MLOps-1125/testrepo1.git
+  851  git remote -v
+  852  git push
+  853  cd ..
+  854  history
+	
+	
+Working with Visual Studio Code :::: IDE for coding and development
+
+Packing ML Models :
+
+	- Docker ::::
+	
+		
+		Docker is Container Engine :
+		Used to Manage the Containers and Container Images 
+		
+	
+	- Containerization :::	
+	
+		- Containerization is a process of packaging the dependencies of an application service.
+	
+
+	- Docker Engine 
+	
+	- Ceate Containers 
+	
+	- Create Images 
+
+	- Working with DockerHub(Docker Hub is a Container Registry
+	
+	- Work with Dockee CLI Commands '
+	
+	- Insatall Docker on Build Server
+		
+Next :::
+
+		Packaging using Docker.
 
