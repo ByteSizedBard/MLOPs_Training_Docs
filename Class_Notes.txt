@@ -2236,3 +2236,88 @@ Next :::
 
 		Packaging using Docker.
 
+	
+	
+
+#####################
+Day 8: 5th Dec. 2025
+#####################
+	
+	- Containerization :::	
+	
+		- Containerization is a process of packaging the dependencies of an application service.
+		
+	
+	Working with Docker :
+	
+		- Docker Engine 		==> Installed the Dev/Build,Stage,Prod 
+		
+		- Container Registry 	==> Manage/Version Control the Container Images 
+		
+			- Eg.: DockerHub, (ECR, ACR) Managed Service  
+			
+		- Docker Cli Command 	
+		
+		- Create a Docker Image 
+
+		- Publish the Container Images to Container Registry 
+		
+		- Create a Container 
+		
+	Terminologies ::::
+	
+		-> Docker Engine		# Is to Manage/Create the Container Images and Containers
+		
+		-> Container Image 		# It is a static file, which define all the dependencies of the ML Model/Application
+								# It is used package the Application along with it's dependencies.
+								# Container Images are Non-Execuatable.
+								# These Container Images are saved in the Container Registries
+								
+		-> Container			# Container is an Execuatable unit of Container Image 
+		
+		-> Container Registry	# Manage/Version Control the Container Images 
+		
+		-> Container Repository	# Is a subset of Container Registry 
+								
+		
+		
+		AWS Cloud Platform: 
+		
+			- Create an EC2 Instance - Linux ubuntu.
+			
+			- Using SSH Agent Login to EC2 Instance and Work with Docker.
+		
+	
+		
+	https://aws.amazon.com/console/
+	
+	- Launch an EC2 Instance - Ubuntu 
+	
+	- Connect to EC2 Instance using SSH Agent 
+	
+		-> MobaXterm 		
+		-> Putty 
+	
+	- Terminal 
+	
+	- Install Docker Engine on Ubuntu Machine:  
+
+		- sudo -i
+		- apt update -y
+		- apt install docker.io -y 
+		
+		
+		
+		Docker Cli Commands ::::
+		
+		docker --version 		
+		
+		docker images 			# Get the list of image in local machine 
+		
+		docker ps 				# Get the list of all Active Containers
+		
+		docker ps -a 			# Get the list of all Active & Inactive Containers
+		
+		docker pull ubuntu 
+
+		docker run -it ubuntu bash
