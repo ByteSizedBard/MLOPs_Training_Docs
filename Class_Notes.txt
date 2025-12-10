@@ -2498,3 +2498,221 @@ Package ML Model using Docker :::
 													  This Command cannot be changed at run-time.			
 		
 	
+		
+
+#######################
+Day 10: 10th Dec. 2025
+#######################	
+
+	ML Model Create, Train, Test, Deploy :::
+	
+	
+	ML Model Build Process :::
+	
+		DVC
+		AWS S3 Service
+		
+		Mlflow 
+		
+		Docker 
+		
+		Kubernetes
+		
+		Kubeflow 
+		
+		Prometheus 
+		
+		AWS Sagemaker (Managed Services)
+		
+		
+	-> ML Project :::
+	
+		Source Dataset :::		are version controlled using DVC ==> AWS S3 Bucket,Google Drive, Azure Persistant Disk 
+		
+			-> Size will huge and high scalable!
+			
+		Source Codes :
+		
+			*.py scripts are version controlled git/github
+	
+	
+	- To Implement :::
+	
+		Dev/Build 
+	
+		Test 
+		
+		Prod 
+	
+	
+	- ML Model :
+	
+		- Create Web Application 
+		
+		
+		- APIs 
+		
+			- REST API 
+			
+	How to create Web Application/API for ML Model ??
+	
+		- Web Application Tools : 
+			Python Web Application Framework : flask/Django 
+			
+			Streamlit is Web Application framework : Data Analytics, ML Projects 
+			
+		- APIs ::
+		
+		
+	Prepare Data :::
+	
+		- AWS Account:
+		
+		- Create S3 Bucket --> Updated with Bucket Policy 					edu-loksai-mlproj-bkt1
+		
+		- Create AWS EC2 Ubuntu Instance 
+		
+			- Install git, dvc								# https://doc.dvc.org/use-cases
+															# 
+			- Configure aws cli with Access Key & Secret 
+			
+			- Update IAM Role
+			
+		- On EC2 Instance, Create MLProject Workspace 
+		
+		- Create venv
+		
+		- git init 
+		
+		- dvc to track the datasets :
+		
+		
+	--> sudo -i 
+	
+	--> apt install python3-pip 
+	
+	--> pip3 install dvc_s3
+	
+
+apt install python3-pip -y
+
+apt install python3.12-venv -y
+
+#sudo apt update sudo apt install python3.10-venv -y
+
+python3 -m venv loksai_env
+
+source loksai_env/bin/activate 
+
+#pip install --upgrade pip pip install "dvc[s3]" 
+
+pip install dvc_s3
+
+#apt install git -y 
+
+git --version 
+
+dvc --version 
+
+
+	src 
+		*.py 
+		*.config 
+		
+	data 
+		app_data.txt
+
+git remote add origin <github_url>
+
+dvc remote add -d myremote s3://edu-loksai-mlproj-bkt1
+
+
+dvc remote add -d myremote s3://my-dvc-bucket/dvc_store
+
+
+
+
+dactivate 
+
+    1  apt update -y
+    2  git --version
+    3  clear
+    4  apt install python3-pip
+    5  mkdir MLProjects
+    6  cd MLProjects/
+    7  clear
+    8  python3 -m venv loksai_env
+    9  apt install python3.12-venv
+   10  python3 -m venv loksai_env
+   11  source loksai_env/bin/activate
+   12  pip install dvc_s3
+   13  git -version
+   14  git --version
+   15  dvc --version
+   16  mkdir repo1
+   17  cd repo1/
+   18  ls
+   19  ls -a
+   20  git init
+   21  ls -a
+   22  dvc init
+   23  ls -a
+   24  cd .dvc
+   25  ls
+   26  ls -a
+   27  cat .gitignore
+   28  cd ..
+   29  ls
+   30  ls -a
+   31  cat .dvcignore
+   32  git status
+   33  git add .
+   34  git commit -m "Initialized dvc"
+   35  git log --oneline
+   36  ls
+   37  ls
+   38  ls -a
+   39  echo "#First Review Record" >> data.txt
+   40  cat data.txt
+   41  git status
+   42  ls -a
+   43  dvc add data.txt
+   44  git status
+   45  ls -a
+   46  cat .gitignore
+   47  cat data.txt
+   48  ls
+   49  cat data.txt.dvc
+   50  git add .
+   51  git commit -m "dvc tracking"
+   52  ls
+   53  cat data.txt
+   54  echo "#Second Review Record" >> data.txt
+   55  git status
+   56  dvc add data.txt
+   57  git status
+   58  cat data.txt.dvc
+   59  git add .
+   60  git commit - "Updated data"
+   61  git commit -m "Updated data"
+   62  clear
+   63  dvc remote add -d myremote s3://edu-loksai-mlproj-bkt1
+   64  dvc push
+   65  ls
+   66  cat data.txt.dvc
+   67  echo "#third Review Record" >> data.txt
+   68  dvc add data.txt
+   69  git status
+   70  git add .
+   71  git commit -m "Update data"
+   72  dvc push
+   73  ls
+   74  cat data.txt.dvc
+   75  dvc pull
+   76  dactivate
+   77  deactivate
+   78  ls
+   79  cd ..
+   80  ;s
+   81  ls
+   82  history		
