@@ -2716,3 +2716,214 @@ dactivate
    80  ;s
    81  ls
    82  history		
+
+
+
+		
+#######################
+Day 11: 11th Dec. 2025
+#######################			
+	
+	ML Application tools ::
+	
+		- API Tools 
+		
+		- Web Application Framework 
+		
+	- Streamlit			https://streamlit.io/#install
+	
+	- Fast API			https://fastapi.tiangolo.com/
+		
+	- Python 
+	
+	- Flask Web Application Framework
+	
+	
+- Pre-Requisites :::
+
+	Dev Environment ( Local Machine )
+	
+	Insatall :: Visual Studio Code-IDE, Python, Streamlit, FAst API, Docker  
+	
+	
+	1. Open VS Code 
+	
+	2. Create a Project Folder 
+	
+	3. Install Streamlit
+	
+	
+app.py
+
+import streamlit as st
+
+# Add a title to your app
+st.title('My First Streamlit Demo App')
+
+# Add a text input widget
+user_input = st.text_input("Enter some text here:")
+
+# Display the user input back to the screen
+if user_input:
+    st.write(f'You entered: {user_input}')
+
+# Add a simple button
+if st.button('Click me'):
+    st.write('Button clicked! Hello, world!') 
+	
+	
+	
+Open Terminal on VS Code ::::
+
+	pip install streamlit
+	
+	streamlit run .\app.py
+	
+	
+	- streamlit, Python 
+	
+	flask/Django Framework
+
+
+
+
+
+Fast API ::
+
+	python -m venv venv
+	
+	.\venv\Scripts\activate
+	
+	pip install fastapi uvicorn			# Execute the Fast API Script
+	
+	
+	uvicorn main:app --reload
+	
+	
+		fastAPI - To Create APis and Manage the workflow.
+		
+		
+
+
+
+		from fastapi import FastAPI
+		from pydantic import BaseModel
+
+		app = FastAPI(title="Simple FastAPI Demo App")
+
+
+		# Request Body Model
+		class Item(BaseModel):
+			name: str
+			description: str | None = None
+			price: float
+
+
+		# Home route
+		@app.get("/")
+		def read_root():
+			return {"message": "Welcome to the FastAPI Demo App!"}
+
+
+		# GET method with query param
+		@app.get("/items/")
+		def get_item(name: str):
+			return {"message": f"You requested item: {name}"}
+
+
+		# POST method
+		@app.post("/items/")
+		def create_item(item: Item):
+			return {"message": "Item created successfully", "item": item}
+
+
+		# PUT method
+		@app.put("/items/{item_id}")
+		def update_item(item_id: int, item: Item):
+			return {
+				"message": f"Item {item_id} updated successfully",
+				"updated_item": item,
+			}
+			
+			
+	
+
+
+
+Flask Web Application FrameWork ::::::
+
+Flask Project:
+	- Develop and deploy web application Service 
+	- Uses separate workflow with html resources, Web App resources 
+
+
+Streamlit :::
+
+	- Develop the version controlled dataset 
+	
+	
+How to prepare Python Web Application using flask WAS.	
+	
+	Create Python console Programmes 
+	
+Create Web Application using Flask Web Application Framework
+	
+##################################
+
+Folder Structure :
+
+	My-WebApp-Project
+		app.py
+		templates
+			sample.html
+			
+##################################
+		
+		Open New Terminal :			
+			
+			Install : 	Web Application Framework
+				pip install flask
+		
+			Create app.py 
+		
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def sample():
+	return render_template("sample.html")
+
+if "__name__" == "__main__":
+	app.run(debug=True)	
+	
+	
+		Create "templates" folder at root level :::
+				Create Html files :: eg. sample.html 
+				
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>www.loksaieta.com</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+	  <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+		   class="img-responsive center-block" style="width:250px"/>
+	  <h2 class="text-center">Hello Everyone</h2>
+	  <p class="text-center"> Python Demo...</p>
+  </div>
+</body>
+</html>	
+
+
+		set FLASK_APP=sample
+	
+		python -m flask run	
+	
+		
+			
+			
