@@ -2980,4 +2980,96 @@ Next ::
 	- DVC / S3, MLFlow 	
 
 					
+
+
+		
+#######################
+Day 14: 17th Dec. 2025
+#######################	
+
+
+	- Setup Kubernetes Cluster :
+	
+	
+	Architecture :
+	
+		Kubernetes_Master 			# Control plan
+		
+			- Kubernetes_WorkNode1
+			- Kubernetes_WorkNode2
+			- Kubernetes_WorkNode3	
 			
+			
+		Pods 			# Atomic unit of task 
+						# Pod executes one or more container within.
+		
+		Cluster			# Is a collection of WorkNodes. 
+	
+	
+	Install Kubernetes Components ::::
+	
+
+	Kubernetes Concepts :
+	
+		Pods 			::::
+		
+		
+		Namespaces 
+		
+		Controller Objects
+	
+			- Deployment Controller Object 
+			
+		Services :
+		
+			- Cluster_IP
+			- NodePort 							*****
+			- Load_Balancer
+			
+		Volumes :
+			
+			- Persistant Volume 
+			- Persistant Volume Claim
+			
+			
+	- Manifest file 		==> yaml/json format
+	
+	
+	- Kubernetes Controller Objects:
+	
+		- Deployment Controller Object
+	
+	Deployment Controller Object :::
+	
+		--> It is used to deploy the pods and ensure high availability of pods by creating pod replicas 
+		--> 1. Create Muliple instance/replicas/copies of pods 
+			2. Used to Scale-Up / Scale-Down the Pods 
+			3. Used to Upgrade the application pods 
+			4. Used to Down-grade/roll-back the application pods
+		--> The upgrade/down-grade of application pods can be done without any downtime. 
+		--> To achieve zero-downtime during upgrade/down-grade, By Default, it used Rolling-Update Deployment Strategy.
+
+
+	Pod:v1.0			==> Pod:vl.0
+	Pod:v1.1			==> Pod:v1.1
+	Pod:v1.2			==> Pod:v1.2 
+	Pod:v1.3			==> Pod:vl.3
+	
+	
+	- Deployment Strageies :
+	
+		- Rolling-Update Strategy is used to deploy the changes without any downtome!
+		
+
+Deploy : ML Project - Loksai-feedback-analyzer 		
+		
+	   : Build 
+	   : Preprocessing 
+	   : create joblib 
+	   : Docker Image Build - Human Data/Analysis Understandable Model
+	   : Publish the image to Continer Registry 
+	   : Create Deployment Oject - Kubernetes 
+	   
+	   : github-actions - cicd 
+	   : Monitoring
+				
