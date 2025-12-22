@@ -3091,3 +3091,659 @@ Day 15: 18th Dec. 2025
 		
 		
 		Using Mlflow --> How to Track the ML Model Experiments!
+
+
+
+	
+		
+#######################
+Day 16: 19th Dec. 2025
+#######################		
+		
+	
+	Core ML Project Components ::::
+	
+	
+	
+	
+	input data file 					s3:Bkt
+	
+	dvc pipeline :::
+		dvc.yaml 
+	
+	model Artifacts						s3:Bkt 
+	
+	
+#######################
+Day 17: 22nd Dec. 2025
+#######################
+
+
+	- Project 1 : Use Open Source MLOps Tool-stack :
+	
+		Tools :
+		
+			git 
+			github 
+			dvc 
+			aws s3 
+			mlflow 
+			fast-api 
+			Streamlit
+			Docker 
+			DockerHub 
+			Kubernetes
+			github-actions workflow 
+
+
+
+	Project 1 : Submission ::::
+	
+		Source Code : 	github repo url 
+
+		Architecture : Workflow Diagram 
+		
+		Data Source :	
+			- s3 Bucket - Dataset --> reviews.csv 
+		
+		Deployments :
+			- S3 Bucket - with Model 
+			- Kubernetes Cluster 
+				with Pods 
+					kubectl get deploy
+					kubectl get pods 
+					kubectl get svc 
+		
+		Monitoring :
+			- Track Experiments using Mlflow 
+			- Api using fast API 
+			- Web Application Using Streamlit
+			
+
+
+Project Phases :
+
+	1. Development Phase 
+		
+		On Dev Environment :			EC2 Instance -- attach IAM Role to access s3 bucket. & Enable all required port : 22, 8501, 8000, 5000
+																	
+		
+			sudo apt update && sudo apt upgrade -y
+			sudo apt install -y \
+			  python3.12 python3.12-venv python3-pip \
+			  git docker.io unzip curl
+
+				✅ METHOD 1 — Install AWS CLI v2 (Recommended)
+
+				AWS CLI v2 is the latest, stable version.
+
+				✔ Step 1 — Download the installer
+				cd /tmp
+				curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+				✔ Step 2 — Unzip
+				sudo apt install -y unzip
+				unzip awscliv2.zip
+
+				✔ Step 3 — Install
+				sudo ./aws/install
+
+				✔ Step 4 — Verify
+				aws --version	
+
+			python3.12 -m venv loksai_env
+			
+			source loksai_env/bin/activate	
+
+			apt install dvc, mlflow, streamlit, fast-api,aws cli,upzip, curl
+			
+			
+			aws configure 
+			
+			access key:
+			secret key: 
+			aws_region: 
+			data_format: 
+			
+			clone github repo 
+						
+			cd <proj1>
+
+			git init 
+
+			dvc init 
+
+			dvc remote add -d s3remote s3://edu-loksai-mlproj-bkt1
+
+			git add .dvc/config
+
+			git commit -m "Configure DVC S3 remote"
+
+			vi data/raw/reviews.csv				# Add 200+ Records			
+
+			dvc add data/raw/reviews.csv		# Add data/raw/reviews.csv to git after every dvc add
+
+			git add data/raw/reviews.csv.dvc data/raw/.gitignore
+
+			git commit -m "Added DVC Data-v1"
+
+			dvc repro
+
+
+			git add data/processed/.gitignore models/.gitignore dvc.lock			# Add dvc.lock to git after every dvc repro
+
+			git commit -m "repro-Processed data-v1"
+
+			dvc push 							# Push repro-Processed data 
+
+			dvc status							# Status should be: Data and pipelines are up to date.
+
+			### Verify MLflow Dashboard:
+
+			️⃣ Stop any running MLflow process
+			pkill -f mlflow
+
+			4️⃣ Remove ALL server overrides (VERY IMPORTANT)
+			unset MLFLOW_UI_SERVER
+			unset MLFLOW_GUNICORN_OPTS
+			unset MLFLOW_WAITRESS_OPTS
+
+			5️⃣ Start MLflow UI (ONLY correct command)
+			mlflow ui --host 0.0.0.0 --port 5000 --allowed-hosts '*'
+
+			6️⃣ Open in browser
+			http://<EC2_PUBLIC_IP>:5000
+
+
+			### OPTIONAL: MODEL VALIDATION
+			9️⃣ Run API locally
+			uvicorn api.main:app --host 0.0.0.0 --port 8000
+
+			6️⃣ Open in browser
+			http://<EC2_PUBLIC_IP>:8000
+
+			### Run Streamlit
+			streamlit run ui/app.py --server.address 0.0.0.0			### Confirm predictions change with new data.
+
+			6️⃣ Open in browser
+			http://<EC2_PUBLIC_IP>:8501
+			
+			
+	
+	2. Build ::
+		
+		Build job of github-actions workflow 
+		
+			- Create api & ui Docker Images
+			- Publish to DockerHub			
+			
+			
+			
+	3. Deployment ::
+	
+			- Deploy the api & ui on Kubernetes Cluster for further testing and monitoring!
+
+
+
+	MLOps Process :::
+	
+	Create CI CICD Pipeline :
+	
+		Build Orchestration Tool :
+		
+			- Jenkins / Az Pipelines / AWS CodePipelines/ gitlab-ci / github-actions workflow 
+			
+			
+			Build_Environment :
+			- Dynamic Build GitHub Server 
+			
+				-  Source Code Check out 
+				-  Perform Build Docker / Image Build  
+				-  Publish the Build Artifacts / Image to Docker Registry
+			
+			Target Environment : -> QA/STAGE/PROD 
+			- Self Hosted Agent 
+			
+				-  Deploy to Target Environment 
+				
+				
+			Pre-Requisites to work on Github Action workflow :
+
+				--> Eg.: DockerHub Credentials 
+				
+				1. Create Secret_Variables - DockerHub Username & PAT 
+				
+				
+	
+		Github-Actions :::::
+	
+	Automate the Model Creation and Containerization using CICD Workflow - github-actions workflow.
+	
+	Setup-self-hosted Agent on github
+	
+	Deploy using Kubernetes 
+	
+		1. Launch a Target Server / Kubernetes Cluster & Attach IAM Role for S3.
+		2. Open all the required ports 
+		3. Login and Install the required packages
+				- Docker / K3s/Minikube/Kubeadm 
+		
+				- Install unzip utility / curl 
+				
+				- Install aws-cli 
+				
+				- aws configure 
+					- AWS: Access Token & Secret Key
+					
+		4. Setup the Credentials:
+			- Create linux user - devopsadminuser1
+				- valid Credentials - 
+					 Recommended to have ssh-key - public_Key & Private Keys 
+
+#Add User : 
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#ssh-keygen
+
+#for Ubuntu ::
+#ssh-keygen -t rsa -b 2048 -m PEM								#ubuntu 20.04
+
+ssh-keygen -t ecdsa -b 521										#ubuntu 22.04 or higher version of ubuntu				
+
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_ecdsa - private key
+#id_ecdsa.pub - public
+
+
+#cat id_rsa.pub > authorized_keys
+
+cat id_ecdsa.pub > authorized_keys
+
+chmod 600 /home/devopsadmin1/.ssh/*
+
+					 
+				- Enable user access to kubernetes Master 
+				
+					- Create .kube/config under user's home dir. 
+					- Use this user's kube/config file content as token for Authentication on github runner.
+					
+					
+		5. Setup github self-hosted action-runner
+		
+			- Goto the Repo level setting 
+			- Actions -> Runner 
+			- Create Runner based on the OS & follow the instructions. 
+					
+
+
+
+
+github-actions workflow ::: # cicd pipeline
+
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # =============================
+  # JOB 1: Build & Push Images
+  # =============================
+  build:
+    name: Build & Push to DockerHub
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Login to DockerHub
+    - name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    # Build API image
+    - name: Build API Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830api:latest -f docker/Dockerfile.api .
+
+    # Build UI image
+    - name: Build UI Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830ui:latest -f docker/Dockerfile.ui .
+
+    # Push API image
+    - name: Push API image
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830api:latest
+
+    # Push UI image
+    - name: Push UI image
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830ui:latest
+
+  # =============================
+  # JOB 2: Deploy to Kubernetes
+  # =============================
+  deploy:  
+    name: Deploy to Kubernetes
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup kubectl
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube/config
+
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/api-deployment.yaml
+        kubectl apply -f k8s/ui-deployment.yaml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	- Project 2 : Use AWS Sagemaker :
+	
+		-> AWS fully Managed Service :
+	
+		-> AWS Sagemaker - AI 
+				-> AWS IAM,S3,ECR,ECS
+				-> AWS Cli 
+				
+				-> Intuitive
+
+			-> Cost 			
+			-> Migration  
+
+
+
+Dataset :
+
+data/raw/review.csv :::
+
+review_text,sentiment
+I love this product it works perfectly,positive
+Absolutely fantastic quality and service,positive
+Very happy with the purchase,positive
+Great experience would buy again,positive
+Excellent product highly recommended,positive
+Amazing performance and value,positive
+Satisfied with quality and delivery,positive
+Works exactly as advertised,positive
+Customer support was very helpful,positive
+This is the best purchase I have made,positive
+
+This product is okay not great not bad,neutral
+Average quality nothing special,neutral
+It works but has some issues,neutral
+Neither good nor bad experience,neutral
+Product meets basic expectations,neutral
+Decent but could be improved,neutral
+Acceptable quality for the price,neutral
+Nothing impressive but usable,neutral
+Fine for occasional use,neutral
+Okayish experience overall,neutral
+
+Worst product I have ever bought,negative
+Very disappointed with the quality,negative
+Terrible experience waste of money,negative
+Does not work as expected at all,negative
+Extremely poor build quality,negative
+Bad experience will not recommend,negative
+Product stopped working in two days,negative
+Customer service was terrible,negative
+Totally useless and overpriced,negative
+Highly dissatisfied with this product,negative
+
+I am happy with the fast delivery,positive
+Packaging was good and product works well,positive
+Average packaging but product is decent,neutral
+Late delivery and damaged box,negative
+The item arrived broken,negative
+Very smooth and reliable performance,positive
+Not worth the price paid,negative
+Okay product but slow response,neutral
+Loved the design and usability,positive
+Disappointed with the overall experience,negative
+
+
+
+
+
+
+
+
+
+
+
+PROJECT STRUCTURE (Best Practice)
+
+mlops-e2e/
+├── data/
+│   ├── raw/
+│   │   └── reviews.csv        # NOT tracked by Git
+│   └── processed/
+│       └── clean.csv          # DVC output
+│
+├── models/
+│   └── model.pkl              # DVC output
+│
+├── src/
+│   ├── data_validation.py
+│   ├── preprocessing.py
+│   └── train.py
+│
+├── api/
+│   └── main.py
+│
+├── ui/
+│   └── app.py
+│
+├── dvc.yaml
+├── requirements.txt
+└── .gitignore
+	
+
+
+🧱 1️⃣ High-Level End-to-End MLOps Architecture
+┌────────────┐
+│   Developer│
+│ (Local PC) │
+└─────┬──────┘
+      │ git push
+      ▼
+┌────────────────────┐
+│     GitHub Repo    │
+│  (Code + DVC meta) │
+└─────┬──────────────┘
+      │
+      │ GitHub Actions (CI/CD)
+      ▼
+┌──────────────────────────────┐
+│        CI PIPELINE           │
+│  - Tests                     │
+│  - Train Model               │
+│  - Log to MLflow             │
+│  - Build Docker Images       │
+│  - Push to DockerHub         │
+└─────┬────────────────────────┘
+      │
+      ▼
+┌──────────────────────┐
+│   Kubernetes Cluster │
+│   (EC2 / kubeadm)    │
+└──────────────────────┘
+
+🧪 2️⃣ Training + Data Versioning Architecture (DVC + MLflow)
+           ┌───────────────┐
+           │  Raw Dataset  │
+           │ (CSV)         │
+           └──────┬────────┘
+                  │ dvc add
+                  ▼
+           ┌────────────────┐
+           │   DVC Metadata │
+           │  (.dvc files)  │
+           └──────┬─────────┘
+                  │ dvc push
+                  ▼
+        ┌──────────────────────┐
+        │        AWS S3        │
+        │ (Raw / Processed /   │
+        │  Model Artifacts)    │
+        └──────────────────────┘
+
+                  ▲
+                  │
+┌─────────────────┴─────────────────┐
+│           Training Code           │
+│  - preprocessing.py               │
+│  - train.py                       │
+│                                   │
+│  Logs → MLflow Tracking Server    │
+└─────────────────┬─────────────────┘
+                  │
+                  ▼
+        ┌──────────────────────┐
+        │   MLflow Registry    │
+        │  sentiment-model     │
+        │  v1 → v2 → v3        │
+        │  Staging / Prod      │
+        └──────────────────────┘
+
+
+✅ Key idea
+
+DVC → data & model storage
+
+MLflow → model lifecycle
+
+🚀 3️⃣ CI/CD Architecture (GitHub Actions → Docker → Kubernetes)
+┌──────────────────────────┐
+│      GitHub Actions      │
+│                          │
+│  Job 1: CI               │
+│   - Lint                 │
+│   - Unit tests           │
+│                          │
+│  Job 2: Build            │
+│   - Docker API image     │
+│   - Docker UI image      │
+│                          │
+│  Job 3: Push             │
+│   - DockerHub            │
+│                          │
+│  Job 4: Deploy           │
+│   - kubectl apply        │
+└─────────────┬────────────┘
+              │
+              ▼
+     ┌───────────────────┐
+     │    DockerHub      │
+     │ api:latest        │
+     │ ui:latest         │
+     └─────────┬─────────┘
+               │
+               ▼
+     ┌────────────────────────┐
+     │   Kubernetes Cluster   │
+     │                        │
+     │  API Deployment        │
+     │  UI Deployment         │
+     └────────────────────────┘
+
+☸️ 4️⃣ Kubernetes Runtime Architecture (Pods, Services, Networking)
+                   ┌───────────────┐
+                   │   User / Web  │
+                   └──────┬────────┘
+                          │
+                     NodePort / LB
+                          │
+         ┌────────────────┴────────────────┐
+         │           Kubernetes            │
+         │                                 │
+         │  ┌────────────┐   ┌───────────┐ │
+         │  │ Streamlit  │   │ FastAPI   │ │
+         │  │ UI Pod     │──▶│ API Pod   │ │
+         │  └────────────┘   └─────┬─────┘ │
+         │                           │
+         │                    Load Model
+         │                           │
+         │                    ┌──────▼──────┐
+         │                    │  MLflow     │
+         │                    │  Registry   │
+         │                    └──────┬──────┘
+         │                           │
+         │                    ┌──────▼──────┐
+         │                    │     S3      │
+         │                    │ Model/Data  │
+         │                    └─────────────┘
+         └──────────────────────────────────┘
+
+📊 5️⃣ Monitoring Architecture (Prometheus + Grafana)
+┌──────────────┐
+│   FastAPI    │
+│ /metrics     │
+└──────┬───────┘
+       │ scrape
+       ▼
+┌──────────────────┐
+│   Prometheus     │
+│  - Latency       │
+│  - Error rate    │
+│  - Throughput    │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│    Grafana       │
+│  Dashboards      │
+│  Alerts          │
+└──────────────────┘
+
+
+Git → GitHub Actions → DockerHub → Kubernetes
+            ↓
+         Training
+            ↓
+        MLflow Registry
+            ↓
+      Production Model
+            ↓
+        FastAPI API
+            ↓
+        Streamlit UI
+            ↓
+     Prometheus → Grafana
+	 
+	
